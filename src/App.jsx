@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX, FiDownload, FiSun, FiMoon, FiMail } from "react-icons/fi";
-import Particles from "react-tsparticles";
 
 // Social links
 const socials = [
@@ -45,26 +44,9 @@ export default function App() {
 
   return (
     <div className={dark ? "dark" : ""}>
-      {/* Particle Background */}
-      <Particles
-        className="absolute inset-0 -z-10"
-        options={{
-          fpsLimit: 60,
-          particles: {
-            number: { value: 50, density: { enable: true, area: 800 } },
-            color: { value: "#a78bfa" },
-            shape: { type: "circle" },
-            opacity: { value: 0.3 },
-            size: { value: 3 },
-            move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
-          },
-          interactivity: { events: { onHover: { enable: true, mode: "repulse" } } },
-        }}
-      />
-
       <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-900 dark:to-pink-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
         {/* Navigation */}
-        <nav className="container mx-auto p-4 flex items-center justify-between relative z-10">
+        <nav className="container mx-auto p-4 flex items-center justify-between">
           <a href="#home" className="font-bold text-xl tracking-tight">Nishant Jha</a>
           <div className="hidden md:flex items-center gap-6">
             <a href="#projects" className="hover:underline">Projects</a>
@@ -82,7 +64,6 @@ export default function App() {
               <FiDownload /> Resume
             </a>
           </div>
-
           <button className="md:hidden p-2" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle menu">
             {navOpen ? <FiX size={22} /> : <FiMenu size={22} />}
           </button>
@@ -275,8 +256,7 @@ export default function App() {
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             <motion.form
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
               action="https://formspree.io/f/yourformid"
               method="POST"
@@ -294,22 +274,16 @@ export default function App() {
                 <label className="text-sm">Message</label>
                 <textarea name="message" required rows={5} className="w-full mt-1 p-3 rounded-md border dark:border-gray-700 bg-white dark:bg-gray-800" />
               </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="px-6 py-3 rounded-md bg-indigo-600 text-white inline-flex items-center gap-2"
-              >
+              <button type="submit" className="px-6 py-3 rounded-md bg-indigo-600 text-white inline-flex items-center gap-2">
                 <FiMail /> Send Message
-              </motion.button>
+              </button>
             </motion.form>
 
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="p-6 rounded-lg border dark:border-gray-700">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 rounded-lg border dark:border-gray-700">
               <h4 className="font-medium">Other ways to reach</h4>
               <p className="mt-2 text-sm opacity-80">Email: nishant.jha.aiml.2022mitmeerut.ac.in</p>
               <p className="mt-2 text-sm opacity-80">Phone: 9142198460</p>
               <p className="mt-2 text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
-
               <div className="mt-6">
                 <h5 className="font-medium">Availability</h5>
                 <p className="text-sm opacity-80 mt-2">Open to internships & backend roles. Available for freelance and collaborative projects.</p>
@@ -332,4 +306,3 @@ export default function App() {
     </div>
   );
 }
-s
