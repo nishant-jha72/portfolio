@@ -222,27 +222,6 @@ export default function App() {
           </div>
         </motion.section>
 
-        /* {/* Blog Section */}
-        <motion.section
-          id="blog"
-          className="container mx-auto px-4 py-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-bold mb-4">Writings</h2>
-          <div className="mt-6 grid md:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <motion.article key={i} whileHover={{ y: -4 }} className="p-4 rounded-lg border dark:border-gray-700">
-                <h4 className="font-semibold">Article Title {i}</h4>
-                <p className="text-sm opacity-80 mt-2">Short excerpt about a technical topic you wrote — e.g., "Inspecting rich documents with multimodality in Gemini."</p>
-                <a className="mt-3 inline-block text-indigo-600" href="#">Read</a>
-              </motion.article>
-            ))}
-          </div>
-        </motion.section> */
-
         {/* Contact Section */}
         <motion.section
           id="contact"
