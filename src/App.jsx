@@ -208,7 +208,7 @@ export default function App() {
                 <li>Languages: C, Python, C++</li>
                 <li>Frameworks: React.js, Node.js, Express.js, QT</li>
                 <li>Databases: MySQL, MongoDB</li>
-                <li>Tools: Git, Docker, Kafka (learning), Vertex AI</li>
+                <li>Tools: Git,Github , Vertex AI</li>
               </ul>
             </motion.div>
 
@@ -222,7 +222,7 @@ export default function App() {
           </div>
         </motion.section>
 
-        {/* Blog Section */}
+        /* {/* Blog Section */}
         <motion.section
           id="blog"
           className="container mx-auto px-4 py-12"
@@ -241,7 +241,7 @@ export default function App() {
               </motion.article>
             ))}
           </div>
-        </motion.section>
+        </motion.section> */
 
         {/* Contact Section */}
         <motion.section
