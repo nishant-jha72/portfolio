@@ -51,7 +51,6 @@ export default function App() {
           <div className="hidden md:flex items-center gap-6">
             <a href="#projects" className="hover:underline">Projects</a>
             <a href="#about" className="hover:underline">About</a>
-            <a href="#blog" className="hover:underline">Blog</a>
             <a href="#contact" className="hover:underline">Contact</a>
             <button onClick={handleThemeToggle} aria-label="Toggle theme" className="p-2 rounded-md">
               {dark ? <FiSun size={18} /> : <FiMoon size={18} />}
@@ -79,7 +78,6 @@ export default function App() {
           <div className="flex flex-col p-4 gap-3">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
           </div>
         </motion.div>
@@ -98,7 +96,7 @@ export default function App() {
               Nishant Jha
             </h1>
             <p className="mt-4 max-w-xl text-lg">
-              I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech. Profficiency In C++ and Python and Love To Solving Real World Problem
+              I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech.
             </p>
 
             <div className="mt-6 flex gap-4">
@@ -126,6 +124,8 @@ export default function App() {
                   key={s.name}
                   whileHover={{ scale: 1.2, rotate: 10 }}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm opacity-80 hover:opacity-100"
                 >
                   {s.name}
@@ -181,7 +181,7 @@ export default function App() {
                   ))}
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <a href={p.link} className="text-indigo-600">View</a>
+                  <a href={p.link} className="text-indigo-600" target="_blank" rel="noopener noreferrer">View</a>
                   <a href="#contact" className="text-sm inline-flex items-center gap-2"><FiMail /> Hire me</a>
                 </div>
               </motion.article>
@@ -208,7 +208,7 @@ export default function App() {
                 <li>Languages: C, Python, C++</li>
                 <li>Frameworks: React.js, Node.js, Express.js, QT</li>
                 <li>Databases: MySQL, MongoDB</li>
-                <li>Tools: Git,Github , Vertex AI</li>
+                <li>Tools: Git, Docker, Kafka (learning), Vertex AI</li>
               </ul>
             </motion.div>
 
@@ -273,33 +273,23 @@ export default function App() {
 
         {/* Footer */}
         <footer className="border-t dark:border-gray-700 mt-12">
-          <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+          <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
-            <div className="flex items-center gap-3">
-              <a href="#" className="text-sm">Privacy</a>
-              <a href="#" className="text-sm">Terms</a>
+            
+            {/* Competitive & social links */}
+            <div className="flex items-center gap-4">
+              <a href="https://github.com/nishant-jha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/nishant-jha-3b6aba265" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+                LinkedIn
+              </a>
+              <a href="https://leetcode.com/Nishantjha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+                LeetCode
+              </a>
             </div>
           </div>
         </footer>
-        <footer className="border-t dark:border-gray-700 mt-12">
-  <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
-    
-    {/* Links to competitive coding & socials */}
-    <div className="flex items-center gap-4">
-      <a href="https://github.com/nishant-jha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-        GitHub
-      </a>
-      <a href="https://linkedin.com/in/nishant-jha-3b6aba265" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-        LinkedIn
-      </a>
-      <a href="https://leetcode.com/your-leetcode-username" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-        LeetCode
-      </a>
-    </div>
-  </div>
-</footer>
-
       </main>
     </div>
   );
