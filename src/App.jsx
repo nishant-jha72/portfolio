@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX, FiDownload, FiSun, FiMoon, FiMail } from "react-icons/fi";
+import Particles from "react-tsparticles";
 
+// Social links
 const socials = [
   { name: "GitHub", href: "https://github.com/nishant-jha72" },
   { name: "LinkedIn", href: "https://linkedin.com/in/nishant-jha-3b6aba265" },
 ];
 
+// Project data
 const projects = [
   {
     id: 1,
@@ -42,8 +45,26 @@ export default function App() {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <nav className="container mx-auto p-4 flex items-center justify-between">
+      {/* Particle Background */}
+      <Particles
+        className="absolute inset-0 -z-10"
+        options={{
+          fpsLimit: 60,
+          particles: {
+            number: { value: 50, density: { enable: true, area: 800 } },
+            color: { value: "#a78bfa" },
+            shape: { type: "circle" },
+            opacity: { value: 0.3 },
+            size: { value: 3 },
+            move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
+          },
+          interactivity: { events: { onHover: { enable: true, mode: "repulse" } } },
+        }}
+      />
+
+      <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-900 dark:to-pink-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+        {/* Navigation */}
+        <nav className="container mx-auto p-4 flex items-center justify-between relative z-10">
           <a href="#home" className="font-bold text-xl tracking-tight">Nishant Jha</a>
           <div className="hidden md:flex items-center gap-6">
             <a href="#projects" className="hover:underline">Projects</a>
@@ -56,7 +77,7 @@ export default function App() {
             <a
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-md border dark:border-gray-700"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md border dark:border-gray-700 hover:bg-indigo-600 hover:text-white transition"
             >
               <FiDownload /> Resume
             </a>
@@ -67,6 +88,7 @@ export default function App() {
           </button>
         </nav>
 
+        {/* Mobile menu */}
         <motion.div
           initial={{ height: 0 }}
           animate={{ height: navOpen ? "180px" : 0 }}
@@ -81,66 +103,93 @@ export default function App() {
           </div>
         </motion.div>
 
-        <section id="home" className="container mx-auto px-4 py-20">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              <p className="text-indigo-500 font-medium">Hi, I am</p>
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                Nishant Jha
-              </h1>
-              <p className="mt-4 max-w-xl text-lg">
-                I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech.
-              </p>
+        {/* Home Section */}
+        <motion.section
+          id="home"
+          className="container mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.div initial={{ x: -30 }} animate={{ x: 0 }} transition={{ delay: 0.2 }}>
+            <p className="text-indigo-500 font-medium">Hi, I am</p>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+              Nishant Jha
+            </h1>
+            <p className="mt-4 max-w-xl text-lg">
+              I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech.
+            </p>
 
-              <div className="mt-6 flex gap-4">
-                <a href="#projects" className="px-6 py-3 rounded-md bg-indigo-600 text-white shadow-lg hover:scale-105 transform transition">
-                  See Projects
-                </a>
-                <a href="#contact" className="px-6 py-3 rounded-md border dark:border-gray-700">Get in touch</a>
-              </div>
+            <div className="mt-6 flex gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#projects"
+                className="px-6 py-3 rounded-md bg-indigo-600 text-white shadow-lg"
+              >
+                See Projects
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#contact"
+                className="px-6 py-3 rounded-md border dark:border-gray-700"
+              >
+                Get in touch
+              </motion.a>
+            </div>
 
-              <div className="mt-8 flex items-center gap-3">
-                {socials.map((s) => (
-                  <a key={s.name} href={s.href} className="text-sm opacity-80 hover:opacity-100">
-                    {s.name}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
+            <div className="mt-8 flex items-center gap-3">
+              {socials.map((s) => (
+                <motion.a
+                  key={s.name}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  href={s.href}
+                  className="text-sm opacity-80 hover:opacity-100"
+                >
+                  {s.name}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="relative"
-            >
-              <div className="bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-800 dark:to-pink-800 rounded-2xl p-6 shadow-2xl">
-                <div className="p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl backdrop-blur">
-                  <h3 className="font-medium">Featured Project</h3>
-                  <p className="mt-2">Gen AI App — Gemini-powered Image Generator & Chatbot</p>
-                  <div className="mt-4 flex gap-2 flex-wrap">
-                    <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Gemini API</span>
-                    <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Vertex AI</span>
-                  </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="relative"
+          >
+            <div className="bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-800 dark:to-pink-800 rounded-2xl p-6 shadow-2xl">
+              <div className="p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl backdrop-blur">
+                <h3 className="font-medium">Featured Project</h3>
+                <p className="mt-2">Gen AI App — Gemini-powered Image Generator & Chatbot</p>
+                <div className="mt-4 flex gap-2 flex-wrap">
+                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Gemini API</span>
+                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Vertex AI</span>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </motion.div>
+        </motion.section>
 
-        <section id="projects" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-bold">Projects</h2>
-          <p className="text-sm opacity-80 mt-2">A selection of projects I built — full source and case studies available.</p>
+        {/* Projects Section */}
+        <motion.section
+          id="projects"
+          className="container mx-auto px-4 py-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold mb-2">Projects</h2>
+          <p className="text-sm opacity-80 mb-6">A selection of projects I built — full source and case studies available.</p>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {projects.map((p) => (
               <motion.article
                 key={p.id}
-                whileHover={{ y: -6 }}
+                whileHover={{ scale: 1.05, y: -5, boxShadow: "0px 15px 30px rgba(0,0,0,0.2)" }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className="p-6 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 shadow"
               >
                 <h3 className="font-semibold text-lg">{p.title}</h3>
@@ -157,12 +206,20 @@ export default function App() {
               </motion.article>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section id="about" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-bold">About Me</h2>
-          <div className="grid md:grid-cols-3 gap-6 mt-6 items-start">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="md:col-span-2">
+        {/* About Section */}
+        <motion.section
+          id="about"
+          className="container mx-auto px-4 py-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold mb-4">About Me</h2>
+          <div className="grid md:grid-cols-3 gap-6 items-start">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="md:col-span-2">
               <p className="text-sm opacity-90">
                 Passionate and detail-oriented software developer skilled with C++, Python, web technologies, and AI. Experienced in developing intelligent applications with generative AI and solving algorithmic challenges. Prepping for campus placements and building scalable web products.
               </p>
@@ -182,10 +239,18 @@ export default function App() {
               <a className="mt-4 inline-block text-sm" href="/resume.pdf">Download Resume</a>
             </motion.aside>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="blog" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-bold">Writings</h2>
+        {/* Blog Section */}
+        <motion.section
+          id="blog"
+          className="container mx-auto px-4 py-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold mb-4">Writings</h2>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {[1, 2, 3].map((i) => (
               <motion.article key={i} whileHover={{ y: -4 }} className="p-4 rounded-lg border dark:border-gray-700">
@@ -195,14 +260,23 @@ export default function App() {
               </motion.article>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section id="contact" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-bold">Contact</h2>
+        {/* Contact Section */}
+        <motion.section
+          id="contact"
+          className="container mx-auto px-4 py-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold mb-4">Contact</h2>
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             <motion.form
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               action="https://formspree.io/f/yourformid"
               method="POST"
@@ -220,12 +294,17 @@ export default function App() {
                 <label className="text-sm">Message</label>
                 <textarea name="message" required rows={5} className="w-full mt-1 p-3 rounded-md border dark:border-gray-700 bg-white dark:bg-gray-800" />
               </div>
-              <button type="submit" className="px-6 py-3 rounded-md bg-indigo-600 text-white inline-flex items-center gap-2">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="px-6 py-3 rounded-md bg-indigo-600 text-white inline-flex items-center gap-2"
+              >
                 <FiMail /> Send Message
-              </button>
+              </motion.button>
             </motion.form>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 rounded-lg border dark:border-gray-700">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="p-6 rounded-lg border dark:border-gray-700">
               <h4 className="font-medium">Other ways to reach</h4>
               <p className="mt-2 text-sm opacity-80">Email: nishant.jha.aiml.2022mitmeerut.ac.in</p>
               <p className="mt-2 text-sm opacity-80">Phone: 9142198460</p>
@@ -237,8 +316,9 @@ export default function App() {
               </div>
             </motion.div>
           </div>
-        </section>
+        </motion.section>
 
+        {/* Footer */}
         <footer className="border-t dark:border-gray-700 mt-12">
           <div className="container mx-auto px-4 py-6 flex items-center justify-between">
             <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
@@ -252,4 +332,4 @@ export default function App() {
     </div>
   );
 }
-
+s
