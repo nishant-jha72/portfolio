@@ -98,7 +98,7 @@ export default function App() {
               Nishant Jha
             </h1>
             <p className="mt-4 max-w-xl text-lg">
-              I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech.
+              I build scalable backend systems and full-stack web products. Currently working on generative AI, IoT projects, and energy-efficient systems. Well-versed in problem-solving and passionate about emerging tech. Profficiency In C++ and Python and Love To Solving Real World Problem
             </p>
 
             <div className="mt-6 flex gap-4">
@@ -302,6 +302,25 @@ export default function App() {
             </div>
           </div>
         </footer>
+        <footer className="border-t dark:border-gray-700 mt-12">
+  <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
+    
+    {/* Links to competitive coding & socials */}
+    <div className="flex items-center gap-4">
+      <a href="https://github.com/nishant-jha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/nishant-jha-3b6aba265" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/your-leetcode-username" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
+        LeetCode
+      </a>
+    </div>
+  </div>
+</footer>
+
       </main>
     </div>
   );
