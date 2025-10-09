@@ -167,7 +167,7 @@ export default function App() {
 
             {/* Profile image */}
             <motion.img
-              src="/profile.jpg"
+              src="/profile.jpeg"
               alt="Nishant Jha"
               className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-xl dark:border-gray-800 z-10"
               whileHover={{ scale: 1.05 }}
