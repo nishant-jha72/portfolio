@@ -53,7 +53,6 @@ export default function App() {
   return (
     <div className={dark ? "dark" : ""}>
       <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-900 dark:to-pink-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
-        
         {/* Navigation */}
         <nav className="container mx-auto p-4 flex items-center justify-between">
           <a href="#home" className="font-bold text-xl tracking-tight">Nishant Jha</a>
@@ -99,7 +98,6 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Left side content */}
           <motion.div initial={{ x: -30 }} animate={{ x: 0 }} transition={{ delay: 0.2 }}>
             <p className="text-indigo-500 font-medium">Hi, I am</p>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
@@ -144,35 +142,22 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Right side - Animated Profile Picture */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center items-center relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="relative"
           >
-            {/* Animated rotating glow */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-              className="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-indigo-500 via-pink-500 to-purple-500 blur-md"
-            ></motion.div>
-
-            {/* Pulsing outer ring */}
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="absolute w-64 h-64 rounded-full border-4 border-indigo-400 dark:border-pink-400 opacity-40"
-            ></motion.div>
-
-            {/* Profile image */}
-            <motion.img
-              src="/profile.jpeg"
-              alt="Nishant Jha"
-              className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-xl dark:border-gray-800 z-10"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            />
+            <div className="bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-800 dark:to-pink-800 rounded-2xl p-6 shadow-2xl">
+              <div className="p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl backdrop-blur">
+                <h3 className="font-medium">Featured Project</h3>
+                <p className="mt-2">Gen AI App — Gemini-powered Image Generator & Chatbot</p>
+                <div className="mt-4 flex gap-2 flex-wrap">
+                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Gemini API</span>
+                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Vertex AI</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </motion.section>
 
@@ -212,7 +197,7 @@ export default function App() {
           </div>
         </motion.section>
 
-        {/* About Section */}
+        {/* About & Education Section */}
         <motion.section
           id="about"
           className="container mx-auto px-4 py-12"
@@ -221,10 +206,10 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold mb-4">About Me</h2>
+          <h2 className="text-2xl font-bold mb-6">About Me</h2>
           <div className="grid md:grid-cols-3 gap-6 items-start">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="md:col-span-2">
-              <p className="text-sm opacity-90">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="md:col-span-2 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+              <p>
                 Passionate and detail-oriented software developer skilled with C++, Python, web technologies, and AI. Experienced in developing intelligent applications with generative AI and solving algorithmic challenges. Prepping for campus placements and building scalable web products.
               </p>
               <ul className="mt-4 grid grid-cols-2 gap-2">
@@ -242,6 +227,47 @@ export default function App() {
               <p className="text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
               <a className="mt-4 inline-block text-sm" href="/resume.pdf">Download Resume</a>
             </motion.aside>
+          </div>
+
+          {/* Education Timeline */}
+          <div className="mt-12 relative">
+            <h3 className="text-xl font-bold text-center mb-8">Education Journey</h3>
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-400 via-pink-400 to-purple-400 transform -translate-x-1/2"></div>
+
+              {/* Step 1 */}
+              <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="mb-12 flex justify-between items-center w-full">
+                <div className="w-5/12 text-right">
+                  <h4 className="font-semibold text-lg text-indigo-700 dark:text-pink-400">B.Tech in Computer Science & Engineering</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Meerut Institute of Technology (2022–2026)</p>
+                  <p className="text-xs text-gray-500 mt-1">Percentage: 73.2%</p>
+                </div>
+                <div className="rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 p-3"></div>
+                <div className="w-5/12"></div>
+              </motion.div>
+
+              {/* Step 2 */}
+              <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="mb-12 flex justify-between items-center w-full">
+                <div className="w-5/12"></div>
+                <div className="rounded-full bg-gradient-to-br from-pink-500 to-indigo-500 p-3"></div>
+                <div className="w-5/12">
+                  <h4 className="font-semibold text-lg text-indigo-700 dark:text-pink-400">Intermediate (12th)</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Marwari College, Bhagalpur — BSEB Board</p>
+                  <p className="text-xs text-gray-500 mt-1">Percentage: 73.8%</p>
+                </div>
+              </motion.div>
+
+              {/* Step 3 */}
+              <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="mb-12 flex justify-between items-center w-full">
+                <div className="w-5/12 text-right">
+                  <h4 className="font-semibold text-lg text-indigo-700 dark:text-pink-400">Matriculation (10th)</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MVHS High School, Bharatshila — BSEB Board</p>
+                  <p className="text-xs text-gray-500 mt-1">Percentage: 78.6%</p>
+                </div>
+                <div className="rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-3"></div>
+                <div className="w-5/12"></div>
+              </motion.div>
+            </div>
           </div>
         </motion.section>
 
@@ -282,35 +308,17 @@ export default function App() {
             </motion.form>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 rounded-lg border dark:border-gray-700">
-              <h4 className="font-medium">Other ways to reach</h4>
-              <p className="mt-2 text-sm opacity-80">Email: nishant.jha.aiml.2022mitmeerut.ac.in</p>
-              <p className="mt-2 text-sm opacity-80">Phone: 9142198460</p>
-              <p className="mt-2 text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
-              <div className="mt-6">
-                <h5 className="font-medium">Availability</h5>
-                <p className="text-sm opacity-80 mt-2">Open to internships & backend roles. Available for freelance and collaborative projects.</p>
-              </div>
+              <h4 className="font-medium">Other ways to reach me</h4>
+              <p className="mt-2 text-sm opacity-80">Email: nishant.jha@example.com</p>
+              <p className="mt-1 text-sm opacity-80">Phone: +91-XXXXXXXXXX</p>
+              <p className="mt-1 text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
             </motion.div>
           </div>
         </motion.section>
 
         {/* Footer */}
-        <footer className="border-t dark:border-gray-700 mt-12">
-          <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
-            
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/nishant-jha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-                GitHub
-              </a>
-              <a href="https://linkedin.com/in/nishant-jha-3b6aba265" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-                LinkedIn
-              </a>
-              <a href="https://leetcode.com/Nishantjha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
-                LeetCode
-              </a>
-            </div>
-          </div>
+        <footer className="py-6 text-center text-sm opacity-70 border-t dark:border-gray-700 mt-12">
+          © 2025 Nishant Jha. All rights reserved.
         </footer>
       </main>
     </div>
