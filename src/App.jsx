@@ -34,6 +34,14 @@ const projects = [
     tech: ["MERN Stack", "React.js", "Node.js", "MongoDB", "Express.js"],
     link: "https://github.com/nishant-jha72/PROMOS",
   },
+  {
+   id: 4,
+    title: "Online Quiz sytem",
+    desc:
+      "Building a CLI based quiz System using c++  as Primary Language and SQL as DATABASE Connection.",
+    tech: ["C++" , "MySQL"],
+    link: "https://github.com/nishant-jha72/quiz_system_with_c-",
+  },
 ];
 
 export default function App() {
