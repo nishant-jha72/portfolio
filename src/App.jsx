@@ -35,11 +35,11 @@ const projects = [
     link: "https://github.com/nishant-jha72/PROMOS",
   },
   {
-   id: 4,
-    title: "Online Quiz sytem",
+    id: 4,
+    title: "Online Quiz System",
     desc:
-      "Building a CLI based quiz System using c++  as Primary Language and SQL as DATABASE Connection.",
-    tech: ["C++" , "MySQL"],
+      "Building a CLI based quiz System using C++ as Primary Language and SQL as DATABASE Connection.",
+    tech: ["C++", "MySQL"],
     link: "https://github.com/nishant-jha72/quiz_system_with_c-",
   },
 ];
@@ -53,6 +53,7 @@ export default function App() {
   return (
     <div className={dark ? "dark" : ""}>
       <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-900 dark:to-pink-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+        
         {/* Navigation */}
         <nav className="container mx-auto p-4 flex items-center justify-between">
           <a href="#home" className="font-bold text-xl tracking-tight">Nishant Jha</a>
@@ -98,6 +99,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
+          {/* Left side content */}
           <motion.div initial={{ x: -30 }} animate={{ x: 0 }} transition={{ delay: 0.2 }}>
             <p className="text-indigo-500 font-medium">Hi, I am</p>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
@@ -142,22 +144,35 @@ export default function App() {
             </div>
           </motion.div>
 
+          {/* Right side - Animated Profile Picture */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center items-center relative"
           >
-            <div className="bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-800 dark:to-pink-800 rounded-2xl p-6 shadow-2xl">
-              <div className="p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl backdrop-blur">
-                <h3 className="font-medium">Featured Project</h3>
-                <p className="mt-2">Gen AI App — Gemini-powered Image Generator & Chatbot</p>
-                <div className="mt-4 flex gap-2 flex-wrap">
-                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Gemini API</span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Vertex AI</span>
-                </div>
-              </div>
-            </div>
+            {/* Animated rotating glow */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+              className="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-indigo-500 via-pink-500 to-purple-500 blur-md"
+            ></motion.div>
+
+            {/* Pulsing outer ring */}
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute w-64 h-64 rounded-full border-4 border-indigo-400 dark:border-pink-400 opacity-40"
+            ></motion.div>
+
+            {/* Profile image */}
+            <motion.img
+              src="/profile.jpg"
+              alt="Nishant Jha"
+              className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-xl dark:border-gray-800 z-10"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            />
           </motion.div>
         </motion.section>
 
@@ -284,7 +299,6 @@ export default function App() {
           <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm">© {new Date().getFullYear()} Nishant Jha. Built with React + Tailwind.</p>
             
-            {/* Competitive & social links */}
             <div className="flex items-center gap-4">
               <a href="https://github.com/nishant-jha72" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">
                 GitHub
