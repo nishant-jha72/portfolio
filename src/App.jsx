@@ -153,7 +153,7 @@ export default function App() {
             <div className="relative w-64 h-64 rounded-full p-1 bg-gradient-to-r from-indigo-500 via-pink-500 to-purple-500 animate-spin-slow">
               <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center p-2">
                 <img
-                  src="/profile.jpg" // replace with your profile image path
+                  src="/profile.jpeg" // replace with your profile image path
                   alt="Nishant Jha"
                   className="rounded-full w-full h-full object-cover"
                 />
