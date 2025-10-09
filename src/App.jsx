@@ -98,6 +98,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
+          {/* Left: Intro */}
           <motion.div initial={{ x: -30 }} animate={{ x: 0 }} transition={{ delay: 0.2 }}>
             <p className="text-indigo-500 font-medium">Hi, I am</p>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
@@ -142,20 +143,20 @@ export default function App() {
             </div>
           </motion.div>
 
+          {/* Right: Animated Profile Picture */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="relative"
+            className="flex justify-center"
           >
-            <div className="bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-800 dark:to-pink-800 rounded-2xl p-6 shadow-2xl">
-              <div className="p-6 bg-white/60 dark:bg-gray-800/60 rounded-xl backdrop-blur">
-                <h3 className="font-medium">Featured Project</h3>
-                <p className="mt-2">Gen AI App — Gemini-powered Image Generator & Chatbot</p>
-                <div className="mt-4 flex gap-2 flex-wrap">
-                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Gemini API</span>
-                  <span className="text-sm px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Vertex AI</span>
-                </div>
+            <div className="relative w-64 h-64 rounded-full p-1 bg-gradient-to-r from-indigo-500 via-pink-500 to-purple-500 animate-spin-slow">
+              <div className="absolute inset-0 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center p-2">
+                <img
+                  src="/profile.jpg" // replace with your profile image path
+                  alt="Nishant Jha"
+                  className="rounded-full w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
@@ -310,7 +311,7 @@ export default function App() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 rounded-lg border dark:border-gray-700">
               <h4 className="font-medium">Other ways to reach me</h4>
               <p className="mt-2 text-sm opacity-80">Email: nishant.jha@example.com</p>
-              <p className="mt-1 text-sm opacity-80">Phone: +91-XXXXXXXXXX</p>
+              <p className="mt-1 text-sm opacity-80">Phone: +91-9142198460</p>
               <p className="mt-1 text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
             </motion.div>
           </div>
@@ -318,7 +319,7 @@ export default function App() {
 
         {/* Footer */}
         <footer className="py-6 text-center text-sm opacity-70 border-t dark:border-gray-700 mt-12">
-          © 2025 Nishant Jha. All rights reserved.
+          © {new Date().getFullYear()} Nishant Jha. All rights reserved.
         </footer>
       </main>
     </div>
