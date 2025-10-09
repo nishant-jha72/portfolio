@@ -310,8 +310,8 @@ export default function App() {
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6 rounded-lg border dark:border-gray-700">
               <h4 className="font-medium">Other ways to reach me</h4>
-              <p className="mt-2 text-sm opacity-80">Email: nishant.jha@example.com</p>
-              <p className="mt-1 text-sm opacity-80">Phone: +91-9142198460</p>
+              <p <b> className="mt-2 text-sm opacity-80">Email: nishant.jha@mitmeerut.ac.in</p>
+              <p className="mt-1 text-sm opacity-80">Phone: +91-9142198460 </b></p>
               <p className="mt-1 text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
             </motion.div>
           </div>
