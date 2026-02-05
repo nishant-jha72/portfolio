@@ -64,7 +64,7 @@ export default function App() {
               {dark ? <FiSun size={18} /> : <FiMoon size={18} />}
             </button>
             <a
-              href="/resume.pdf"
+              href="/Nishant_jha_resume_2026.pdf"
               download
               className="inline-flex items-center gap-2 px-4 py-2 rounded-md border dark:border-gray-700 hover:bg-indigo-600 hover:text-white transition"
             >
