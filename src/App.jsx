@@ -11,7 +11,6 @@ const socials = [
 // Project data
 const projects = [
   {
-  {
     id: 1,
     title: "PROMOS (In Progress)",
     desc:
@@ -27,6 +26,7 @@ const projects = [
     tech: ["MERN Stack", "React.js", "Node.js", "MongoDB", "Express.js"],
     link: "https://github.com/nishant-jha72/internshala-clone",
   },
+  {
   id: 3,
     title: "Hospital Management System (Major Project)",
     desc:
