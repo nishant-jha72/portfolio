@@ -11,14 +11,15 @@ const socials = [
 // Project data
 const projects = [
   {
-    id: 1,
-    title: "Hospital Management System (Major Project)",
-    desc:
-      "Developed a QT based application for hospital management: appointing doctors, booking appointments, and fee payment. Used SMTP to send appointment details to users and doctors on due date.",
-    tech: ["QT", "C++", "MySQL", "SMTP"],
-    link: "https://github.com/nishant-jha72/hospital-management-system-using-c-and-mysql",
-  },
   {
+    id: 1,
+    title: "PROMOS (In Progress)",
+    desc:
+      "Building a MERN-based platform that connects promoters and creators. Developed the frontend for both user roles.",
+    tech: ["MERN Stack", "React.js", "Node.js", "MongoDB", "Express.js"],
+    link: "https://github.com/nishant-jha72/PROMOS",
+  },
+    {
     id: 2,
     title: "Internshala Clone (Minor Project)",
     desc:
@@ -26,13 +27,12 @@ const projects = [
     tech: ["MERN Stack", "React.js", "Node.js", "MongoDB", "Express.js"],
     link: "https://github.com/nishant-jha72/internshala-clone",
   },
-  {
-    id: 3,
-    title: "PROMOS (In Progress)",
+  id: 3,
+    title: "Hospital Management System (Major Project)",
     desc:
-      "Building a MERN-based platform that connects promoters and creators. Developed the frontend for both user roles.",
-    tech: ["MERN Stack", "React.js", "Node.js", "MongoDB", "Express.js"],
-    link: "https://github.com/nishant-jha72/PROMOS",
+      "Developed a QT based application for hospital management: appointing doctors, booking appointments, and fee payment. Used SMTP to send appointment details to users and doctors on due date.",
+    tech: ["QT", "C++", "MySQL", "SMTP"],
+    link: "https://github.com/nishant-jha72/hospital-management-system-using-c-and-mysql",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const projects = [
       "Building a CLI based quiz System using C++ as Primary Language and SQL as DATABASE Connection.",
     tech: ["C++", "MySQL"],
     link: "https://github.com/nishant-jha72/quiz_system_with_c-",
-  },
+  }
 ];
 
 export default function App() {
@@ -223,7 +223,7 @@ export default function App() {
 
             <motion.aside whileHover={{ scale: 1.02 }} className="p-4 rounded-xl border dark:border-gray-700">
               <h4 className="font-medium">Quick Info</h4>
-              <p className="text-sm opacity-80 mt-2">B.Tech 3rd Year — Meerut Institute of Technology (AKTU)</p>
+              <p className="text-sm opacity-80 mt-2">B.Tech Final Year Student @Meerut Institute of Technology (AKTU)</p>
               <p className="text-sm opacity-80">CGPA: 7.2</p>
               <p className="text-sm opacity-80">Location: Banka, Bihar / Meerut, India</p>
               <a className="mt-4 inline-block text-sm" href="/resume.pdf">Download Resume</a>
